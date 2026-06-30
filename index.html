@@ -912,12 +912,10 @@
       A real-world chemistry escape room experience.
     </p>
 
-    <!-- ✏️ VIDEO: replace countdown.mp4 with your actual file name -->
     <div class="hero-video-wrap" style="position:relative;z-index:2;opacity:0;animation:subtitleReveal .6s ease both .8s;animation-fill-mode:forwards;">
       <span class="hero-video-label">INTRODUCTION VIDEO</span>
       <video autoplay muted loop playsinline>
         <source src="./countdown.mp4" type="video/mp4">
-        <!-- fallback: if video not found, nothing shows -->
       </video>
     </div>
 
@@ -1068,7 +1066,6 @@
       <div class="divider"></div>
 
       <div class="timeline-list">
-        <!-- ✏️ EDIT: Replace with your actual project milestones -->
         <div class="timeline-item">
           <div class="timeline-dot done"></div>
           <p class="timeline-label">Phase 01 · Completed</p>
@@ -1111,7 +1108,6 @@
       <div class="divider"></div>
 
       <div class="credits-grid">
-        <!-- ✏️ EDIT: replace with your real team and supporters -->
         <div class="credit-card">
           <p class="credit-role">Special Thanks</p>
           <p class="credit-name">State University of the Midwest</p>
@@ -1129,7 +1125,6 @@
         </div>
       </div>
 
-      <!-- ── EASTER EGG: cipher decoder ── -->
       <div class="decoder-box">
         <p class="decoder-label"></p>
         <div class="decoder-row">
@@ -1167,15 +1162,8 @@
         gain.gain.exponentialRampToValueAtTime(.001, ctx.currentTime + .1);
         osc.connect(gain); gain.connect(ctx.destination);
         osc.start(); osc.stop(ctx.currentTime + .1);
-      } catch (e) { /* audio not supported — silently ignore */ }
+      } catch (e) {}
     }
-
-    /* ════════════════════════════════════════════════════════
-       CHALLENGES DATA  ✏️ Edit here — add your real image paths
-       images: []                 → shows placeholder
-       images: ['ch1_p1.png']     → 1 image, no arrows
-       images: ['p1.png','p2.png']→ 2 pages, arrows appear
-    ════════════════════════════════════════════════════════ */
     const CHALLENGES = [
       { num:'01', title:'Initial Protocol',    tag:'Startup',
         desc:'Players reviewed essential laboratory safety protocols and collaborated to find hidden, backward messages concealed in the room.',
@@ -1281,13 +1269,12 @@
       grid.appendChild(card);
     });
 
-    /* ─── HERO AUDIO ON CTA CLICK ────────────────────────────── */
     const heroAudio = document.getElementById('hero-audio');
     const heroCta    = document.getElementById('hero-cta');
     if (heroAudio && heroCta) {
       heroCta.addEventListener('click', () => {
         heroAudio.currentTime = 0;
-        heroAudio.play().catch(() => {}); // ignore autoplay-block errors
+        heroAudio.play().catch(() => {});
       });
     }
 
